@@ -2,25 +2,19 @@
   <div class="example">
     <app-type> Basic Usage </app-type>
     <var-space>
-      <img class="cat" v-lazy="'https://varlet.gitee.io/varlet-ui/cat.jpg'" />
-      <img class="cat" v-lazy="'https://varlet.gitee.io/varlet-ui/cat.jpg'" />
-      <img class="cat" v-lazy="'https://varlet.gitee.io/varlet-ui/cat.jpg'" />
-      <img class="cat" v-lazy="'https://varlet.gitee.io/varlet-ui/cat.jpg'" />
-      <img class="cat" v-lazy="'https://varlet.gitee.io/varlet-ui/cat.jpg'" />
-      <img class="cat" v-lazy="'https://varlet.gitee.io/varlet-ui/cat.jpg'" />
+      <img class="cat" v-lazy="lazy" />
+      <img class="cat" v-lazy="lazy" />
+      <img class="cat" v-lazy="lazy" />
+      <img class="cat" v-lazy="lazy" />
+      <img class="cat" v-lazy="lazy" />
+      <img class="cat" v-lazy="lazy" />
     </var-space>
 
     <app-type> Background Image Lazy Load </app-type>
-    <div class="cat height" v-lazy:background-image="'https://varlet.gitee.io/varlet-ui/cat.jpg'"></div>
+    <div class="cat height" v-lazy:background-image="lazy"></div>
 
     <app-type> Inline Attributes </app-type>
-    <img
-      class="cat"
-      v-lazy="lazy"
-      lazy-loading="https://xxx.cn/loading.png"
-      lazy-error="https://xxx.cn/error.png"
-      lazy-attempt="3"
-    />
+    <img class="cat" v-lazy="lazy" lazy-loading="loading" lazy-error="error" lazy-attempt="3" />
   </div>
 </template>
 
@@ -34,6 +28,8 @@ export default defineNuxtComponent({
   setup() {
     const data = reactive({
       lazy: 'https://varlet.gitee.io/varlet-ui/cat.jpg',
+      loading: 'https://xxx.cn/loading.png',
+      error: 'https://xxx.cn/error.png',
     })
     return { ...toRefs(data) }
   },
